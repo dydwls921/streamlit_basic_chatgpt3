@@ -13,11 +13,14 @@ import os
 load_dotenv()
 api_key = st.secrets["openai"]["api_key"]
 
-client = OpenAI(api_key=api_key) # 환경 변수에서 API 키 가져오기
+#client = OpenAI(api_key=api_key) # 환경 변수에서 API 키 가져오기
 #openai_api_key가져오기
 
 # 모델 초기화
-llm = ChatOpenAI(model="gpt-4o-mini")
+llm = ChatOpenAI(
+    model="gpt-4o-mini",
+    openai_api_key=api_key
+)
 
 # 도구 함수 정의
 @tool
