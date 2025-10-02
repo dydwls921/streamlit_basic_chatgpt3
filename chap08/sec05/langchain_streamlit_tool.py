@@ -11,7 +11,9 @@ from openai import OpenAI  # 주석처리
 from dotenv import load_dotenv
 import os
 load_dotenv()
-api_key = os.getenv("OPENAI_API_KEY")  # 환경 변수에서 API 키 가져오기
+api_key = st.secrets["openai"]["api_key"]
+
+client = OpenAI(api_key=api_key) # 환경 변수에서 API 키 가져오기
 #openai_api_key가져오기
 
 # 모델 초기화
